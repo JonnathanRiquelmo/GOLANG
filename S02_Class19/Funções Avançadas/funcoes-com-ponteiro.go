@@ -2,10 +2,12 @@ package main
 
 import "fmt"
 
+// Passando o parâmetro por cópia
 func inverterSinalComCopia(num int) int {
 	return num * -1
 }
 
+// Passando parâmetro por referência
 func inverterSinalComPonteiro(num *int) {
 	*num = *num * -1
 

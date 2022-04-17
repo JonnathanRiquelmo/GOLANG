@@ -8,14 +8,14 @@ import (
 	"github.com/urfave/cli"
 )
 
-// Gerar vai retornar a apliação de linha de comando pronta para ser executada
+// Gerar vai retornar a aplicação de linha de comando pronta para ser executada no main.go
 func Gerar() *cli.App {
 	app := cli.NewApp()
 	app.Name = "Terminal Application"
 	app.Usage = "Returns IPs and SERVER NAMES on the internet"
 
 	flags := []cli.Flag{
-		//é a definição da flag em um slice, a flag é oq é passado como parametro
+		//é a definição da flag em um slice, a flag é o que se passa como parãmetro
 		cli.StringFlag{
 			//nome da flag
 			Name: "host",
@@ -28,7 +28,7 @@ func Gerar() *cli.App {
 		{
 			//nome do comando
 			Name: "ip",
-			//descrição de uso do comando definição dos parametros que podem ser passados ao comando
+			//descrição de uso do comando definição dos parâmetros que podem ser passados ao comando
 			Usage: "Search ip addresses on the internet",
 			Flags: flags,
 			//execução do comando, define uma ação válida do app
@@ -50,7 +50,7 @@ func searchIps(c *cli.Context) {
 	//para buscar é necessário salvar o host que está sendo passado
 	host := c.String("host")
 
-	//Pacote net para armazenar os ips em um slice de ips (pq um host pode ter mais de um ip público)
+	//pacote NET para armazenar os ips em um slice de ips (pq um host pode ter mais de um ip público)
 	ips, erro := net.LookupIP(host)
 	if erro != nil {
 		log.Fatal(erro)
@@ -66,7 +66,7 @@ func searchIps(c *cli.Context) {
 func searchServers(c *cli.Context) {
 	host := c.String("host")
 
-	servers, erro := net.LookupNS(host) // Name servers
+	servers, erro := net.LookupNS(host) // name servers
 	if erro != nil {
 		log.Fatal(erro)
 	}
